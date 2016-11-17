@@ -84,3 +84,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+Rails.application.routes.draw do
+  resources :contacts, only: [:new, :create]
+  resources :visitors, only: [:new, :create]
+  root to: 'visitors#new'
+end
